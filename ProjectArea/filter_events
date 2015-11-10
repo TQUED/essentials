@@ -1,0 +1,28 @@
+#-----------------------------------------#
+# INFO : This is event log certifier      #
+# TASK : As per user input system will    #
+#        which generate list of level     #
+#        of events to be logged           #
+#                                         #
+#TODO : Implement PriorityQueue           #
+#-----------------------------------------#
+#!/usr/bin/env python
+import sys
+
+EVENTS = ['Debug', 'Information', 'Warning', 'Minor', 'Major', 'Critical']
+GIVEN_LEVEL = sys.argv[1]
+
+
+def get_event_levels(level):
+    l = []
+    key = EVENTS.index(level)
+    for i in range(key, len(EVENTS)):
+        l.append(EVENTS[i])
+
+    return l
+
+if GIVEN_LEVEL in EVENTS:
+    a = get_event_levels(GIVEN_LEVEL)
+    print a
+else:
+    print "[Info] Invalid argument provided"

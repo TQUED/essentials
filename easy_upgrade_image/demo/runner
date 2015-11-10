@@ -1,0 +1,9 @@
+import upgrad.upgradeAgent
+
+
+ut = UpgradeTools(BASE_URL, "/home/netstorm/work/upgrade", "4.1.3.40", True)
+matches = ut.do_search()
+bins = ut.download_matches(matches)
+    
+# TODO check pwd and change to upgrade dir if not in upgrade dir
+ut.initiate_installations(bins)

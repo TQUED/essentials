@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+
+class CustomError(Exception):
+    def __init__(self, mesg):
+        self.mesg = mesg
+
+
+class CallErrorClass:
+    try:
+        a = int(1)
+        b = a*10
+        raise CustomError('This is a customized error call')
+    except CustomError, arg:
+        print 'Error : ',arg.mesg,'And class variable value is : ',b
+
+class MyException(Exception):
+    pass
+
+try:
+    raise MyException({"error": "this is a known error", "type": "custome"})
+except MyException as e:
+    err = e.args[0]
+    print err['type']
+    print err['error']
